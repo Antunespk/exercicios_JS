@@ -22,24 +22,24 @@
 
         <label for="temperaturaEntrada">Qual o grau celsius?</label>
         <input type="text" value="0" id="temperaturaEntrada">
-        <button onclick="calcularTemperatura()">Calcular</button>
+        <button onclick="controllerCalculo()">Calcular</button>
 
         <span id="saidaTexto"></span>
 
     </section>
 </body>
 <script>
-    function controllerCalculo() {
+    function controllerCalculo(celsius) {
         var celsius = document.getElementById("temperaturaEntrada").value;
 
-        var x = calculoTemperatura()
+        var x = calculoTemperatura(celsius)
     }
-    function calculoTemperatura() {
+    function calculoTemperatura(celsius) {
 
+        var f = (celsius * 9 / 5) + 32;
+        alert("Temperatura:" + f);
+        document.getElementById("saidaTexto").innerHTML = "<p>Temperatura:" + f + "</p>";
     }
-    var f = (celsius * 9 / 5) + 32;
-    alert("Temperatura:" + f);
-    document.getElementById("saidaTexto").innerHTML = "<p>Temperatura:" + f + "</p>";
 
 </script>
 
