@@ -29,12 +29,18 @@
     </section>
 </body>
 <script>
-    function calcularTemperatura() {
+    function controllerCalculo() {
         var celsius = document.getElementById("temperaturaEntrada").value;
-        var f = (celsius * 9 / 5) + 32;
-        alert("Temperatura:" + f);
-        document.getElementById("saidaTexto").innerHTML = "<p>Temperatura:" + f + "</p>";
+
+        var x = calculoTemperatura()
     }
+    function calculoTemperatura() {
+
+    }
+    var f = (celsius * 9 / 5) + 32;
+    alert("Temperatura:" + f);
+    document.getElementById("saidaTexto").innerHTML = "<p>Temperatura:" + f + "</p>";
+
 </script>
 
 </html>
