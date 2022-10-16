@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="container">
+        <p>8) Escreva um programa para ler o ano de nascimento de uma pessoa e escrever
+            uma mensagem que diga se ela poderá ou não
+            votar este ano (não é necessário considerar o mês em que ela nasceu).
+        </p>
+        <div class="flex form-control">
+            <div>
+                <label for="anoDeNascimento">Digite o ano em que você nasceu</label>
+                <input type="year" name="anoDeNascimento" id="anoDeNascimento" size="4" placeholder="xxxx">
+            </div>
+            <div class="pt-2">
+                <button type="button" class="btn btn-success" onclick="controllerCalculo()">Verificar validação de
+                    voto</button>
+            </div>
+            <span id="saidaResultado"></span>
+        </div>
+    </section>
+</body>
+<script>
+    function controllerCalculo() {
+        var nasceuEm = parseFloat(document.getElementById("anoDeNascimento").value);
+        var verificar = calculoIdade(nasceuEm);
+        saidaDados(verificar)
+    }
+    function calculoIdade(nasceuEm) {
+        if (2016 > nasceuEm) {
+            return "Você ainda não tem direito a votar!!"
+        }
+        else {
+            return "Você tem direito ao voto!!"
+        }
+    }
+
+    function saidaDados(texto) {
+        document.getElementById("saidaResultado").innerHTML = texto;
+
+    }
+
+</script>
+
+</html>
