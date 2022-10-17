@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="container">
+        <p>6) Um motorista de táxi deseja calcular o rendimento de seu carro na praça. Sabendo-se que o preço do
+            combustível é de
+            R$ 4,87, escreva um programa para ler: a marcação do odômetro (Km) no início do dia, a marcação (Km) no
+            final do dia, o
+            número de litros de combustível gasto e o valor total (R$) recebido dos passageiros. Calcular e escrever: a
+            média do
+            consumo em Km/L e o lucro líquido do dia.
+        </p>
+        <div class="flex form-control">
+            <div>
+                <label for="kmInicial">Kilometragem inicial</label>
+                <input type="number" name="kmInicial" id="kmInicial">
+            </div>
+            <div class="pt-3">
+                <label for="kmFinal">Kilometragem final</label>
+                <input type="number" name="kmFinal" id="kmFinal">
+            </div>
+            <div class="pt-3">
+                <label for="combustivelGasto">Combustível gasto</label>
+                <input type="number" name="combustivelGasto" id="combustivelGasto">
+            </div>
+            <div class="pt-3">
+                <label for="valorDia">Valor recebido no dia</label>
+                <input type="number" name="valorDia" id="valorDia">
+            </div>
+            <div class="pt-3">
+                <button class="btn btn-outline-danger" onclick="controllerCalculo()">Calcular</button>
+            </div>
+            <span id="saidaResult"></span>
+
+        </div>
+    </section>
+</body>
+<script>
+    function controllerCalculo() {
+        var kmInicio = parseFloat(document.getElementById("kmInicial").value);
+        var kmTermino = parseFloat(document.getElementById("kmFinal").value);
+        var combustivel = parseFloat(document.getElementById("combustivelGasto").value);
+        var valor = parseFloat(document.getElementById("valorDia").value);
+
+        var kilometragem = kmrodados(kmInicio, kmTermino);
+        var consumo = mediaConsumo(kilometragem, combustivel);
+        var lucro = lucroDia(combustivel, valor);
+        saidaDados("consumo em Km/L:" + consumo + ";Lucro do dia: " + lucro);
+    }
+
+    function kmrodados(kmInicio, kmTermino) {
+        var rodados = (kmTermino - kmInicio);
+        return rodados;
+    }
+    function mediaConsumo(kilometragem, combustivel) {
+        var kmL = (kilometragem / combustivel);
+        return kmL;
+    }
+    function lucroDia(combustivel, valor, valorCombustivel = 4.87) {
+        var lucro = (valor - (combustivel * valorCombustivel))
+        return lucro;
+    }
+
+    function saidaDados(texto) {
+        document.getElementById("saidaResult").innerHTML = texto;
+
+    }
+
+</script>
+
+</html>
