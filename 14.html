@@ -22,11 +22,11 @@
         <div class="flex form-control">
             <div>
                 <label for="golsGremio">Quantos gols o Gremio marcou?</label>
-                <input type="number" name="golsGremio" id="golsGremio" placeholder="Gols Marcados">
+                <input type="number" name="golsGremio" id="golsGremio" placeholder="Gols" min="0" max="90" step="1">
             </div>
             <div>
                 <label for="golsInter">Quantos gols o Internacional marcou?</label>
-                <input type="number" name="golsInter" id="golsInter" placeholder="Gols Marcados">
+                <input type="number" name="golsInter" id="golsInter" placeholder="Gols" min="0" max="90" step="1">
             </div>
             <div class="pt-2">
                 <button type="button" class="btn btn-outline-success" onclick="controllerCalculo()">Verificar resultado
@@ -50,8 +50,7 @@
             return "Gremio venceu"
         } else if (golsInter > golsGremio) {
             return "Internacional venceu"
-        }
-        else {
+        } else {
             return "O jogo acabou empatado"
         }
     }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="container">
+        <p>17) Escreva um programa para ler 2 valores inteiros e uma das seguintes operações a serem executadas
+            (codificada da
+            seguinte forma: 1- Adição, 2 - Subtração, 3 - Divisão, 4 - Multiplicação). Calcular e escrever o resultado
+            dessa
+            operação sobre os dois valores lidos. Observação: Considere que só serão lidos os valores 1, 2, 3 ou 4.
+        </p>
+        <div class="flex form-control">
+            <div>
+                <label for="primeiroValor">Insira um valor para calcular:</label><br>
+                <input type="number" name="primeiroValor" id="primeiroValor">
+            </div>
+            <div>
+                <label for="segundoValor">Insira outro valor:</label><br>
+                <input type="number" name="segundoValor" id="segundoValor">
+            </div>
+            <div class="pt-2 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-success" onclick="soma(valor1, valor2)">+</button>
+                <span id="saidaSoma"></span>
+            </div>
+            <div class="pt-2 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-primary" onclick="subtracao(valor1, valor2)">-</button>
+                <span id="saidaSubtracao"></span>
+            </div>
+            <div class="pt-2 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" onclick="divisao(valor1, valor2)">/</button>
+                <span id="saidaDivisao"></span>
+            </div>
+            <div class="pt-2 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-danger" onclick="multiplicacao(valor1, valor2)">x</button>
+                <span id="saidaMultiplicacao"></span>
+            </div>
+
+        </div>
+    </section>
+</body>
+<script>
+    var valor1 = parseInt(document.getElementById("primeiroValor").value);
+    var valor2 = parseInt(document.getElementById("segundoValor").value);
+    (function () {
+        var resultSoma = soma(valor1, valor2);
+        var resultsub = subtracao(valor1, valor2);
+        var resultdiv = divisao(valor1, valor2);
+        var resultmult = multiplicacao(valor1, valor2);
+        saidaSoma(resultSoma);
+        saidaSubtracao(resultsub);
+        saidaDivisao(resultdiv);
+        saidaMultiplicacao(resultmult);
+
+    })()
+    function soma(valor1 = 0, valor2 = 0) {
+        return valor1 + valor2;
+    }
+    function saidaSoma(texto) {
+        document.getElementById("saidaSoma").innerHTML = texto;
+    }
+    function subtracao(valor1 = 0, valor2 = 0) {
+        return (valor1 - valor2);
+    }
+    function saidaSubtracao(texto) {
+        document.getElementById("saidaSubtracao").innerHTML = texto;
+    }
+    function divisao(valor1 = 0, valor2 = 0) {
+        return (valor1 / valor2);
+    }
+    function saidaDivisao(texto) {
+        parseInt(document.getElementById("saidaDivisao").innerHTML = texto);
+    }
+    function multiplicacao(valor1 = 0, valor2 = 0) {
+        return (valor1 * valor2)
+    }
+    function saidaMultiplicacao(texto) {
+        document.getElementById("saidaMultiplicacao").innerHTML = texto;
+    }
+</script>
+
+</html>
